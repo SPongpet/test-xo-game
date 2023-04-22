@@ -1,13 +1,7 @@
-// import express from 'express'
-// import mysql from 'mysql'
-// import cors from 'cors'
-// import path from 'path'
 const express = require('express')
 const mysql = require('mysql')
 const path = require('path')
 var cors = require('cors')
-
-
 
 const app = express()
 app.use(express.json())
@@ -153,8 +147,6 @@ app.post('/api/calculate/endgame', async (req, res) => {
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
       if (list[i][j] === "") {
-        // If there's at least one empty square, the game is not over
-        // return null;
         return res.status(200).send({
           message: 'Calculate successfully!!',
           results: null,
@@ -162,7 +154,7 @@ app.post('/api/calculate/endgame', async (req, res) => {
       }
     }
   }
-  // All squares are filled and no winner
+
   return res.status(200).send({
     message: 'Calculate successfully!!',
     results: '',
